@@ -10,6 +10,22 @@
 
 body {
   font-family: "Press Start 2P", cursive !important;
+  &:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+
+    opacity: 0.3;
+
+    width: 20px;
+    height: 100%;
+    margin-left: -10px;
+
+    content: "";
+
+    background-color: #ffffff;
+  }
 }
 
 canvas,
