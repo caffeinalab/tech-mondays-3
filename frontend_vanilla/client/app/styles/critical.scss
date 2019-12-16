@@ -1,0 +1,83 @@
+// MIXINS
+@import "mixins/index";
+// VARIABLES
+@import "variables/critical";
+// VENDORS
+@import "node_modules/sass-mq/mq";
+
+// BASE STYLE
+@import "base/index";
+
+body {
+  font-family: "Press Start 2P", cursive !important;
+}
+
+canvas,
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #000000;
+}
+
+canvas#video {
+  opacity: 0.3;
+}
+
+
+video {
+  opacity: 0.4;
+
+  width: 100vw;
+  height: 100vh;
+
+  transform: scale(-1, 1);
+
+  object-fit: cover;
+}
+
+
+#score {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  opacity: 0.4;
+
+  width: 400px;
+  margin: auto;
+  padding-top: 20px;
+
+  text-align: center;
+
+  color: white;
+
+  font-size: 80px;
+}
+
+#pause {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  opacity: 0;
+
+  width: 100%;
+  height: 300px;
+  margin: auto;
+
+  text-align: center;
+  vertical-align: middle;
+
+  color: white;
+
+  font-size: 100px;
+  line-height: 300px;
+}

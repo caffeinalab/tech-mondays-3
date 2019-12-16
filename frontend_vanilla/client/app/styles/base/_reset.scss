@@ -1,0 +1,96 @@
+html {
+  box-sizing: border-box;
+
+  font-size: percentage($font-size-default / 16px); //16px
+
+  @include mq(md,lg) {
+    font-size: 90%;
+  }
+}
+
+html,
+body {
+  width: 100%;
+
+  line-height: 1.2;
+}
+
+body {
+  overflow-x: hidden;
+
+  background: $color-bg;
+
+  font-family: $font-family-base;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+  color: $color-text;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0 0 0.5em 0;
+  padding: 0;
+
+  font-weight: normal;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+audio,
+canvas,
+iframe,
+svg,
+video,
+img {
+  vertical-align: middle;
+}
+
+svg {
+  max-width: 100%;
+}
+
+img,
+picture {
+  display: inline-block;
+
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}

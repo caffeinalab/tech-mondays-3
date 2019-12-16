@@ -1,0 +1,20 @@
+// UI-KIT DEFAULT
+$default-size: 8px;
+$sketchVariablesBreakpoint: (
+  default: "mobile",
+  md:      "desktop"
+);
+$typographyVariables: ()!default;
+$componentsVariables: ()!default;
+$typographyPropertyList: ()!default;
+$typographyVariablesToCSSClasses: ()!default;
+$typographyVariablesToCSSClasses: ()!default;
+
+// FONT DEFAULTS
+$fonts: ()!default;
+$font-size-default: 16px;
+
+@import "./uikit";
+@import "./layout";
+@import "./colors";
+@import "./typography";

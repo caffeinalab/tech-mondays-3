@@ -1,0 +1,54 @@
+$border-radius: rem(5px);
+$button-padding: rem(16px 24px);
+$buttonSmall-padding: rem(8px 16px);
+$buttonBig-padding: rem(24px 32px);
+
+// UI KIT VARIABLES
+$buttonsVariablesToCSSClasses: (
+  "btn-primary-default": ".ButtonPrimary",
+  "btn-primary-hover": ".ButtonPrimary:hover",
+  "btn-primary-disabled": ".ButtonPrimary:disabled",
+
+  "btn-secondary-default": ".ButtonSecondary",
+  "btn-secondary-hover": ".ButtonSecondary:hover",
+  "btn-secondary-disabled": ".ButtonSecondary:disabled",
+
+  "btn-tertiary-default": ".ButtonTertiary",
+  "btn-tertiary-hover": ".ButtonTertiary:hover",
+  "btn-tertiary-disabled": ".ButtonTertiary:disabled",
+);
+$buttonsPropertyList: (
+  "background-color",
+  "border-radius",
+  "border",
+  "color",
+  "padding"
+);
+
+// END UI KIT VARIABLES
+
+.Button,
+.ButtonSmall,
+.ButtonBig {
+  @include reset-button();
+
+  transition: background 0.2s;
+  &:disabled {
+    cursor: no-drop;
+    pointer-events: none;
+  }
+}
+
+.Button {
+  padding: $button-padding;
+}
+
+.ButtonSmall {
+  padding: $buttonSmall-padding;
+}
+
+.ButtonBig {
+  padding: $buttonBig-padding;
+}
+
+@include generate-rules($buttonsVariablesToCSSClasses, $buttonsPropertyList, $componentsVariables);

@@ -1,0 +1,32 @@
+$font-family-base: "Helvetica", sans;
+// $fonts: (
+//   regular: (
+//     src: "fonts/Modelica-Caffeina/Modelica-Caffeina-Regular",
+//     family: "Modelica-Caffeina",
+//     style: normal,
+//     weight: 400
+//   )
+// );
+$typographyVariablesToCSSClasses: (
+  "h1": "h1, .h1",
+  "h2": "h2, .h2",
+  "h3": "h3, .h3",
+  "h4": "h4, .h4",
+  "h5": "h5, .h5",
+  "h6": "h6, .h6",
+  "p-small": "small, .p-small",
+  "p-regular": "p, .p",
+  "p-big": ".p-big",
+  "btn-label-small": ".ButtonLabelSmall",
+  "btn-label-medium": ".ButtonLabel",
+  "btn-label-big": ".ButtonLabelBig",
+);
+$typographyPropertyList: (
+  "font-family",
+  "font-size",
+  "font-weight",
+  "line-height",
+  // "color",
+  // "letter-spacing",
+  // "text-transform",
+);

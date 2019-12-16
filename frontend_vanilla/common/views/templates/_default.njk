@@ -8,6 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>{{ pageTitle }}</title>
     <meta name="description" content="{{ metaDescription }}" />
     {% block meta %}{% endblock %}
@@ -36,25 +37,13 @@
 
 </head>
 <body class="{{ bodyClass if bodyClass | safe }}">
-
-    {% include 'components/cookiebar.njk' %}
-
     {% block main %}
     {% endblock %}
 
-    <script
-      data-deferStart="true"
-      data-modernsrc="/{{ revisions['js/main.modern.js'] or 'js/main.modern.js' }}"
-      data-src="/{{ revisions['js/main.js'] or 'js/main.js' }}" defer></script>
     {% if production %}
         <script type="text/javascript">{{criticalScript|safe}}</script>
     {% else %}
         <script src="/js/critical.modern.js"></script>
     {% endif %}
-    <script
-      data-modernsrc="/{{ revisions['js/independent/lazysizes.modern.js'] or 'js/independent/lazysizes.modern.js' }}"
-      data-src="/{{ revisions['js/independent/lazysizes.js'] or 'js/independent/lazysizes.js' }}"
-      defer
-    ></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+// MIXINS
+@import "mixins/index";
+// VARIABLES
+@import "variables/main";
+// VENDORS AND MIXINS
+@import "node_modules/sass-mq/mq";
+
+// FULL GRID
+@include generate-grid();
+
+// COMPONENTS
+@import "components/buttons";

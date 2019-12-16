@@ -1,0 +1,21 @@
+@mixin generate-themes($themes: $buttonThemes) {
+  @each $class, $states in $themes {
+    .#{$class} {
+      @each $state, $rules in $states {
+        @if $state == "default" {
+          @include generate-rules($rules);
+        }
+        @if $state == "hover" {
+          &:hover {
+            @include generate-rules($rules);
+          }
+        }
+        @if $state == "disabled" {
+          &:disabled {
+            @include generate-rules($rules);
+          }
+        }
+      }
+    }
+  }
+}

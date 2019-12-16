@@ -1,0 +1,47 @@
+@mixin generate-rules-from-map($variablePrefix, $propertyList, $variableList) {
+  @each $property in $propertyList {
+    @if map-get($variableList, $variablePrefix+"-"+$property) {
+      #{$property}: map-get($variableList, $variablePrefix+"-"+$property);
+    }
+  }
+}
+
+@mixin generate-rules($variableToClasses, $propertyList, $variableList, $breakpoints: $sketchVariablesBreakpoint) {
+  @each $variablePrefix, $cssClasses in $variableToClasses {
+    #{$cssClasses} {
+      @each $breakpoint, $breakpointVariable in $breakpoints {
+        @if($breakpoint == "default") {
+          @include generate-rules-from-map($variablePrefix+"-"+$breakpointVariable, $propertyList, $variableList);
+        } @else {
+          @include mq($breakpoint) {
+            @include generate-rules-from-map($variablePrefix+"-"+$breakpointVariable, $propertyList, $variableList);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-font-face($fontList: $fonts) {
+  @each $fontID, $font in $fontList {
+    $font: defaultTo($font,(
+    style: normal,
+    weight: normal
+    ));
+    $src: map-get($font, "src");
+    $family: map-get($font, "family");
+    $weight: map-get($font, "weight");
+    $style: map-get($font, "style");
+
+    @font-face {
+      font-family: $family;
+      font-weight: $weight;
+      font-style: $style;
+
+      font-display: swap;
+      src: url("/assets/#{$src}.woff") format("woff"), // standards
+      url("/assets/#{$src}.ttf") format("truetype"), // Safari, Android, iOS
+      url("/assets/#{$src}.svg##{$family}") format("svg"); // legacy iOS
+    }
+  }
+}

@@ -243,7 +243,26 @@
           "$include mq"
         ]
       ]
-    }
+    },
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#f0f296",
+      "activityBar.activeBorder": "#15a7aa",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+      "activityBarBadge.background": "#15a7aa",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "titleBar.activeBackground": "#e9ed68",
+      "titleBar.inactiveBackground": "#e9ed6899",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveForeground": "#15202b99",
+      "statusBar.background": "#e9ed68",
+      "statusBarItem.hoverBackground": "#e2e83a",
+      "statusBar.foreground": "#15202b",
+      "panel.border": "#f0f296",
+      "sideBar.border": "#f0f296",
+      "editorGroup.border": "#f0f296"
+    },
+    "peacock.color": "#e9ed68"
   },
   "extensions": {
     "recommendations": [
