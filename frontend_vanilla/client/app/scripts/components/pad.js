@@ -21,7 +21,7 @@ export default class Pad {
     const height = hand.bbox[3]
 
     const yPerc = cap(y / (640 - (height * 3)), 0, 1)
-    this.yPerc = lerp(this.yPerc, yPerc, 0.1)
+    this.yPerc = lerp(this.yPerc, yPerc, 0.2)
     this.y = (this.yPerc * window.innerHeight) - (this.height / 2)
   }
 
