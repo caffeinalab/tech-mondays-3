@@ -1,0 +1,75 @@
+{%
+set defaultConfig = {
+  el: 'button',
+  type: 'submit',
+  baseClass: 'Button',
+  theme: null,
+  classes: null,
+  disabled: null,
+  url: '',
+  attributes: {
+    'data-list': 'sadfsdf',
+    type: 'rel'
+  },
+  label: null,
+  labelClasses: 'ButtonLabel',
+  iconLeft: null,
+  iconLeftType: 'icomoon',
+  iconRight: null,
+  iconRightType: 'icomoon'
+} %}
+
+{%- macro button(config = {}) -%}
+  {%- set config = config|extendDefault(defaultConfig) -%}
+  {# if url we switch the element to an 'a' #}
+  {%- if config.url -%}
+    {% set el = 'a' %}
+  {%- else -%}
+    {% set el = config.el %}
+  {%- endif -%}
+
+  <{{el}} class="{{config.baseClass}}
+    {%- if config.theme %} {{config.theme}} {%- endif -%}
+    {%- if config.classes %} {{config.classes}} {%- endif -%}"
+    {%- if config.type %} type="{{config.type}}" {%- endif -%}
+    {%- if config.disabled %} disabled {%- endif -%}
+    {%- for attributeKey, attributeValue in config.attributes %} {{attributeKey}}="{{attributeValue}}" {%- endfor -%}
+    >
+    {# iconLeft #}
+    {%- if config.iconLeft -%}
+      {{getIcon(config.iconLeft, config.iconLeftType)}}
+    {% endif -%}
+    {# label #}
+    {%- if config.label -%}
+      <span class="{%- if config.labelClasses -%} {{config.labelClasses}} {%- endif -%}">{{ config.label }}</span>
+    {% endif -%}
+    {# iconRight #}
+    {%- if config.iconRight -%}
+      {{getIcon(config.iconRight, config.iconRightType)}}
+    {% endif -%}
+
+  </{{el}}>
+{%- endmacro -%}
+
+{%- macro buttonPrimary(config = {}) -%}
+  {%- set config = config|extendDefault( {
+    theme: "ButtonPrimary"
+  } ) -%}
+  {{ button(config) }}
+{%- endmacro -%}
+
+{%- macro buttonSecondary(config = {}) -%}
+  {%- set config = config|extendDefault( {
+    theme: "ButtonSecondary"
+  } ) -%}
+  {{ button(config) }}
+{%- endmacro -%}
+
+
+{%- macro getIcon(icon, iconType) -%}
+  {%- if iconType === 'icomoon' -%}
+    <span class="{{icon}}"></span>
+  {%- else -%}
+    <svg class="ButtonIcon" xmlns="http://www.w3.org/2000/svg"><use xlink:href="#{{icon}}"></use></svg>
+  {%- endif -%}
+{%- endmacro -%}

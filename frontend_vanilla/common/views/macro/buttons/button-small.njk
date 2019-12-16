@@ -1,0 +1,23 @@
+{% from 'macro/buttons/button.njk' import button %}
+
+{%- macro buttonSmall(config = {}) -%}
+  {%- set config = config|extendDefault( {
+    baseClass: "ButtonSmall",
+    labelClasses: "ButtonLabelSmall"
+  } ) -%}
+  {{ button(config) }}
+{%- endmacro -%}
+
+{%- macro buttonPrimarySmall(config = {}) -%}
+  {%- set config = config|extendDefault( {
+    theme: "ButtonPrimary"
+  } ) -%}
+  {{ buttonSmall(config) }}
+{%- endmacro -%}
+
+{%- macro buttonSecondarySmall(config = {}) -%}
+  {%- set config = config|extendDefault( {
+    theme: "ButtonSecondary"
+  } ) -%}
+  {{ buttonSmall(config) }}
+{%- endmacro -%}

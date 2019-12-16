@@ -1,0 +1,60 @@
+{% from 'macro/picture.njk' import image %}
+{% from 'macro/buttons/button.njk' import button, buttonPrimary, buttonSecondary %}
+{% from 'macro/buttons/button-big.njk' import buttonBig, buttonPrimaryBig, buttonSecondaryBig %}
+{% from 'macro/buttons/button-small.njk' import buttonSmall, buttonPrimarySmall, buttonSecondarySmall %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{ pageTitle }}</title>
+    <meta name="description" content="{{ metaDescription }}" />
+    {% block meta %}{% endblock %}
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+
+    <!-- mobile meta (hooray!) -->
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="preload" as="style" href="/{{ revisions['css/main.css'] or 'css/main.css' }}" />
+    <link rel="preload" as="script" href="/{{ revisions['js/main.modern.js'] or 'js/main.modern.js' }}" />
+
+    {% if production %}
+        <style> {{criticalCss|safe}} </style>
+    {% else %}
+        <link rel="stylesheet" href="/css/critical.css">
+    {% endif %}
+
+    <link rel="stylesheet" data-deferStart="true" data-href="/{{ revisions['css/main.css'] or 'css/main.css' }}" media="none" onload="if(media!='all')media='all'" />
+
+    {% block head %}
+    {% endblock %}
+
+</head>
+<body class="{{ bodyClass if bodyClass | safe }}">
+
+    {% include 'components/cookiebar.njk' %}
+
+    {% block main %}
+    {% endblock %}
+
+    <script
+      data-deferStart="true"
+      data-modernsrc="/{{ revisions['js/main.modern.js'] or 'js/main.modern.js' }}"
+      data-src="/{{ revisions['js/main.js'] or 'js/main.js' }}" defer></script>
+    {% if production %}
+        <script type="text/javascript">{{criticalScript|safe}}</script>
+    {% else %}
+        <script src="/js/critical.modern.js"></script>
+    {% endif %}
+    <script
+      data-modernsrc="/{{ revisions['js/independent/lazysizes.modern.js'] or 'js/independent/lazysizes.modern.js' }}"
+      data-src="/{{ revisions['js/independent/lazysizes.js'] or 'js/independent/lazysizes.js' }}"
+      defer
+    ></script>
+</body>
+</html>

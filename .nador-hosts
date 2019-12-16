@@ -1,0 +1,4 @@
+## Virtual hosts configuration for tech-mondays-3
+127.0.0.1	api_node.tech-mondays-3.test 
+127.0.0.1	tech-mondays-3.test 
+127.0.0.1	frontend_nginx.tech-mondays-3.test 

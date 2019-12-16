@@ -1,0 +1,23 @@
+version: '3'
+services:
+  api_node:
+    image: '${CI_REGISTRY}/${CI_PROJECT_PATH}/${CI_COMMIT_REF_NAME}/api_node'
+    build:
+      context: ..
+      dockerfile: ./api_node/docker/Dockerfile
+  frontend_client:
+    image: '${CI_REGISTRY}/${CI_PROJECT_PATH}/${CI_COMMIT_REF_NAME}/frontend_client'
+    build:
+      context: ..
+      dockerfile: ./frontend_vanilla/client/docker/Dockerfile
+  frontend_nginx:
+    image: '${CI_REGISTRY}/${CI_PROJECT_PATH}/${CI_COMMIT_REF_NAME}/frontend_nginx'
+    build:
+      context: ..
+      dockerfile: ./frontend_vanilla/nginx/docker/Dockerfile
+      args:
+        CI_COMMIT_REF_NAME: '${CI_COMMIT_REF_NAME}'
+        CI_REGISTRY: '${CI_REGISTRY}'
+        CI_PROJECT_PATH: '${CI_PROJECT_PATH}'
+    depends_on:
+      - frontend_client

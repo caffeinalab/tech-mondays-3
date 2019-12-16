@@ -1,0 +1,75 @@
+version: '3'
+networks:
+  tech-mondays-3: null
+  front-tier:
+    external:
+      name: front-tier
+services:
+  api_node:
+    command: dev
+    tty: true
+    restart: unless-stopped
+    volumes:
+      - '../api_node/app:/app'
+    environment:
+      NODE_ENV: development
+      VIRTUAL_HOST: 'api_node.${VIRTUAL_HOST}.test'
+      VIRTUAL_PORT: 80
+    networks:
+      - tech-mondays-3
+      - front-tier
+  frontend_browser-sync:
+    image: >-
+      ${CI_REGISTRY}/${CI_PROJECT_PATH}/${CI_COMMIT_REF_NAME}/frontend_browser-sync
+    build:
+      context: ..
+      dockerfile: ./frontend_vanilla/browser-sync/docker/Dockerfile
+    volumes:
+      - '../frontend_vanilla/client/app:/source'
+    networks:
+      - tech-mondays-3
+      - front-tier
+    environment:
+      VIRTUAL_HOST: '${VIRTUAL_HOST}.test'
+      VIRTUAL_PORT: 80
+    depends_on:
+      - frontend_client
+  frontend_client:
+    command:
+      - dev
+    tty: true
+    environment:
+      NODE_ENV: development
+    volumes:
+      - '../frontend_vanilla/client/app:/app'
+      - '../frontend_vanilla/common/views:/app/views'
+      - '../frontend_vanilla/common/fixtures:/app/fixtures'
+      - '../frontend_vanilla/common/locales:/app/locales'
+      - '../frontend_vanilla/common/assets:/assets'
+    networks:
+      - tech-mondays-3
+  frontend_tommy:
+    image: 'kopiro/tommy:latest'
+    volumes:
+      - '../frontend_vanilla/common/assets/original:/src'
+      - '../frontend_vanilla/common/assets/optimized:/dst'
+    command: '--webserver'
+    networks:
+      - tech-mondays-3
+    logging:
+      driver: none
+    depends_on:
+      - frontend_client
+  frontend_nginx:
+    volumes:
+      - '../frontend_vanilla/client/app/dist/public:/var/static'
+      - '../frontend_vanilla/common/assets/optimized:/var/assets'
+    networks:
+      - tech-mondays-3
+      - front-tier
+    environment:
+      VIRTUAL_HOST: 'frontend_nginx.${VIRTUAL_HOST}.test'
+      VIRTUAL_PORT: 80
+    restart: unless-stopped
+    logging:
+      driver: none

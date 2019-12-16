@@ -1,0 +1,23 @@
+{
+    "argv": {},
+    "folder": "/tech-mondays-3",
+    "DST_FOLDER": "/tech-mondays-3",
+    "DST_FOLDER_ABSOLUTE_PATH": "/Users/vincent.defeo/Workspace/Personal/tech-mondays/tech-mondays-3/tech-mondays-3",
+    "git": {
+        "templateBranch": "master"
+    },
+    "services": [
+        "api_node",
+        "frontend_vanilla"
+    ],
+    "repository": {
+        "REPO_EXIST": true,
+        "REPO_URL": "git@git.caffeina.co:internal/sprints/tech-mondays/tech-mondays-3.git"
+    },
+    "meta": {
+        "DESCRIPTION": "An awesome caffeina project",
+        "VERSION": "1.0.0",
+        "AUTHOR": "Vincent De Feo <vincent.defeo@caffeina.com>",
+        "NAME": "tech-mondays-3"
+    }
+}

@@ -1,0 +1,30 @@
+<h1>Hello World!</h1>
+<hr>
+
+{% if __%}
+  <h3>This is coming from a translation PO file</h3>
+  <p>{{ __('PO_KEY') }}</p>
+  <hr>
+
+  <h3>This is coming from POs using keys from fixtures JSON files:</h3>
+  <ul>
+      {% for item in readme.slides %}
+          <li>{{ __(item.title) }}: {{ __(item.url) }}</li>
+      {% endfor %}
+  </ul>
+<hr>
+{% else %}
+  <h3>Translation via PO file is deactivated</h3>
+  <hr>
+{% endif %}
+
+<h3>This is coming from fixtures JSON files:</h3>
+<p>{{readme._comment}}</p>
+<p>{{readme._comment2}}</p>
+<a href="{{readme.link.url}}">{{readme.link.label}}</a>
+<hr>
+
+<h3>This is an example of usage of the image macro</h3>
+{{ image( '/assets/images/test', 'png', 'Mind Control', [[600], [300,300]], true, true ) }}
+
+{% include 'partials/_grid.njk' %}
