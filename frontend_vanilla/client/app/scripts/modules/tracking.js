@@ -26,7 +26,7 @@ function runDetection() {
       globalCallback(predictions[0], predictions[1])
     }
 
-    // model.renderPredictions(predictions, canvas, context, video);
+    model.renderPredictions(predictions, canvas, context, video);
     requestAnimationFrame(runDetection);
   });
 }
