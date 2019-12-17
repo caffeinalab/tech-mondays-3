@@ -102,7 +102,7 @@ deploy-n3:
     - rm -rf ${DOCKER_CERT_PATH}
   environment:
     name: ${CI_COMMIT_REF_NAME}
-    url: "http://${CI_COMMIT_REF_NAME}.${CI_PROJECT_NAME}.${DOCKER_MACHINE_NAME}/"
+    url: "http://${CI_COMMIT_REF_NAME}.${CI_PROJECT_NAME}.${N3_DOCKER_MACHINE_NAME}/"
   #when: manual
   only:
     - master
