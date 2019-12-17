@@ -83,7 +83,7 @@ deploy-n3:
     DOCKER_TLS_VERIFY: "1"
     DOCKER_HOST: ${N3_DOCKER_HOST}
     DOCKER_CERT_PATH: ${N3_DOCKER_CERT_PATH}
-    VIRTUAL_HOST: "${CI_COMMIT_REF_NAME}.${CI_PROJECT_NAME}.${DOCKER_MACHINE_NAME}"
+    VIRTUAL_HOST: "${CI_COMMIT_REF_NAME}.${CI_PROJECT_NAME}.${N3_DOCKER_MACHINE_NAME}"
     COMPOSE_PROJECT_NAME: ${CI_PROJECT_NAME}_${CI_COMMIT_REF_NAME}
     DC_FILE: "docker-compose.yml"
   script:
@@ -102,7 +102,7 @@ deploy-n3:
     - rm -rf ${DOCKER_CERT_PATH}
   environment:
     name: ${CI_COMMIT_REF_NAME}
-    url: "http://${CI_COMMIT_REF_NAME}.${CI_PROJECT_NAME}.${DOCKER_MACHINE_NAME}/"
+    url: "http://${CI_COMMIT_REF_NAME}.${CI_PROJECT_NAME}.${N3_DOCKER_MACHINE_NAME}/"
   #when: manual
   only:
     - master
