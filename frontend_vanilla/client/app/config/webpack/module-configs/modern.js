@@ -5,7 +5,7 @@ const modern = cloneDeep(moduleBase)
 modern.rules.push(
   {
     test: /\.js$/,
-    exclude: [/node_modules\/(?!(okiba|@okiba)\/).*/],
+    exclude: [/node_modules\/(?!(swiper|dom7|okiba|@okiba)\/).*/],
     use: {
       loader: 'babel-loader',
       options: {
