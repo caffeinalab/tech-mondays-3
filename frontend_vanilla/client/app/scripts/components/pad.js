@@ -18,7 +18,7 @@ export default class Pad {
     if (!hand || !hand.bbox) return
     const y = hand.bbox[1]
     const height = hand.bbox[3]
-    const yPerc = map(~~y, 50, 350, 0, 1)
+    const yPerc = map(~~y, 100, 300, 0, 1)
     handy.textContent = 'y' + yPerc
     this.yPerc = lerp(this.yPerc, yPerc, 0.2)
     this.y = (this.yPerc * window.innerHeight) - (this.height / 2)

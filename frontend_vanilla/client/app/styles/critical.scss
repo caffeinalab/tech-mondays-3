@@ -7,70 +7,83 @@
 // BASE STYLE
 @import "base/index";
 body {
-    font-family: "Press Start 2P", cursive !important;
-    &:after {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        opacity: 0.3;
-        width: 20px;
-        height: 100%;
-        margin-left: -10px;
-        content: "";
-        background-color: #ffffff;
-    }
+  font-family: "Press Start 2P", cursive !important;
+  &:after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+
+    opacity: 0.6;
+
+    width: 20px;
+    height: 100%;
+    margin-left: -10px;
+
+    content: "";
+
+    background-color: #ffffff;
+  }
 }
 
 canvas,
 video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #000000;
 }
 
 canvas#video {
-    opacity: 0.3;
+  opacity: 0.3;
 }
 
 video {
-    opacity: 0;
-    // width: 100vw;
-    // height: 100vh;
-    // transform: scale(-1, 1);
-    // object-fit: cover;
+  display: none;
+  opacity: 0;
 }
 
 #score {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    opacity: 0.4;
-    width: 400px;
-    margin: auto;
-    padding-top: 20px;
-    text-align: center;
-    color: white;
-    font-size: 80px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  opacity: 0.8;
+
+  width: 400px;
+  margin: auto;
+  padding-top: 20px;
+
+  text-align: center;
+
+  color: white;
+
+  font-size: 80px;
 }
 
 #pause {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    width: 100%;
-    height: 300px;
-    margin: auto;
-    text-align: center;
-    vertical-align: middle;
-    color: white;
-    font-size: 100px;
-    line-height: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  opacity: 0;
+
+  width: 100%;
+  height: 300px;
+  margin: auto;
+
+  text-align: center;
+  vertical-align: middle;
+
+  color: white;
+
+  font-size: 100px;
+  line-height: 300px;
 }
