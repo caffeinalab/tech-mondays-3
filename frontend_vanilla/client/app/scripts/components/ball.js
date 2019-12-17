@@ -2,7 +2,7 @@ import collides from '~/utils/collides'
 
 export default class Ball {
   alternate = true
-  speed = 4
+  speed = 8
   width = 20
   height = 20
   x = window.innerWidth / 2
@@ -12,13 +12,13 @@ export default class Ball {
   xDirection = -1
 
   resetSpeed(speed) {
-    this.speed = 4
+    this.speed = 8
   }
 
   incrementSpeed() {
     this.alternate = !this.alternate
     if (this.alternate) {
-      this.speed += 1
+      this.speed += 8
     }
   }
 
